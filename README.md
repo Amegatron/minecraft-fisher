@@ -16,10 +16,10 @@ But still, it is actually working and may prove useful to somebody.
 
 ## Simple usage "as is"
 
-First , I assume you have downloaded or cloned this repo and have python and all the dependecies installed.
+First, I assume you have downloaded or cloned this repo and have python and all the dependecies installed.
 Sorry for not listing the details of this process yet, hope you'll manage it yourself.
 
-Then, if you just want to use it as it is and don't want to train it yourself, you'd need to
+Then, if you just want to use it as is and don't want to train it yourself, you'd need to
 download a pretrained state of the bot (`fisherman_state.pt`) from [here](https://drive.google.com/file/d/1Lp0SOxq3tlVs1MKDXxcKZQHNqixCb-E4/view?usp=sharing)
 and place it just in the folder where you put these sources.
 
@@ -44,7 +44,7 @@ ask you to press Enter to start actual botting. After that, a countdown will sta
 back to the game itself and overall make sure the game window is in the foreground. This is needed because in
 vanilla Minecraft client, the game starts showing the menu as soon as you Alt-Tab so anything else, in fact hiding the
 picture of the game and stopping to receive any controls for a character. But you can still make your own experiments
-if the bot works with "no-alt-tab" mods. Thought I haven't tested that, it should theoretically work.
+if the bot works with "no-alt-tab" mods. Though I haven't tested that, it should theoretically work.
 
 And that's it. In case you need to temporary alt-tab anyway, the bot may get stuck. In this case you can
 just manually "fix" the state by just grabbing the bobber back if it was in water, and the bot shall continue.
