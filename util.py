@@ -3,7 +3,7 @@ import win32ui
 import time
 from ctypes import windll
 from PIL import Image
-from torchvision.transforms import Compose, CenterCrop
+from torchvision.transforms import Compose, CenterCrop, Resize, Grayscale
 
 
 def get_state_filename():
@@ -13,7 +13,9 @@ def get_state_filename():
 def get_transform():
     return Compose(
         [
-            CenterCrop(227),
+            CenterCrop(300),
+            Resize(128),
+            Grayscale(),
         ]
     )
 

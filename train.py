@@ -35,12 +35,12 @@ train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shu
 test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=64, shuffle=True, generator=torch.Generator(device))
 
 model = FishermanModel(len(classes)).to(device)
-lr = 0.000005
+lr = 0.00003
 
 print("Training...")
 train_model(
     model,
-    150,
+    200,
     torch.nn.CrossEntropyLoss(),
     torch.optim.Adam(model.parameters(), lr),
     train_dataloader,

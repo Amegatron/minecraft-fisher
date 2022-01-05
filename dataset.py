@@ -50,7 +50,7 @@ class FishermanSimplifiedDataset(Dataset):
             label[class_idx] = 1.0
 
             for file in files:
-                image = Image.open(file).convert("RGB")
+                image = Image.open(file)
                 self.items.append((label, ToTensor()(image)))
 
             class_idx += 1
