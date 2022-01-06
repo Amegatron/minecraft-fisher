@@ -10,8 +10,8 @@ First, demo video of it working: https://youtu.be/FXoB0K70lb4
 and at its current state is mainly a proof-of-concept work, showing, that such botting is possible.
 This means that though it works in general in most "usual" scenarios (like showed in the video above), including night and even
 during rain, it can still fail in some non-standard ones. But this is mostly a matter of collecting
-a vaster training dataset (see further). This also means that the bot in its current state is (1) not optimized at all yet,
-so I believe users on low- or maybe even mid-end computers may experience performance issues; and (2) it is not much user-friendly.
+a vaster training dataset (see further). This also means that the bot in its current state is (1) not well optimized yet,
+so I believe users on low-end computers may experience performance issues; and (2) it is not much user-friendly.
 But still, it is actually working and may prove useful to somebody.
 
 ## Simple usage "as is"
@@ -20,7 +20,7 @@ First, I assume you have downloaded or cloned this repo and have python and all 
 Sorry for not listing the details of this process yet, hope you'll manage it yourself.
 
 Then, if you just want to use it as is and don't want to train it yourself, you'd need to
-download a pretrained state of the bot (`fisherman_state.pt`) from [here](https://drive.google.com/file/d/1Lp0SOxq3tlVs1MKDXxcKZQHNqixCb-E4/view?usp=sharing)
+download a pretrained state of the bot (`fisherman_state_small_g.pt`) from [here](https://drive.google.com/file/d/1fvAlXnnvzb4ZukhYcYjiRmUWa2crdvje/view?usp=sharing)
 and place it just in the folder where you put these sources.
 
 Next make sure Minecraft is already launched and you're already in the game. Next, before starting the fishing process itself
@@ -31,7 +31,7 @@ Next, launching the bot itself. From command line and assuming you're already in
 (and you're on Windows) you need to execute this command:
 
 ```shell
-python.exe bot.py "Minecraft 1.18"
+python.exe bot.py "Minecraft 1.18" fisherman_state_small_g.pt
 ```
 
 Where "Minecraft 1.18" - is part of Minecraft's window title, so it can be unambiguously identified.
