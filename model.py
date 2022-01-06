@@ -7,10 +7,10 @@ class FishermanModel(torch.nn.Module):
         self.out_features = out_features
 
         self.network = torch.nn.Sequential(
-            torch.nn.Conv2d(1, 32, 6, 2),
+            torch.nn.Conv2d(1, 32, 5, 2),
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2, 2),
-            torch.nn.Conv2d(32, 128, 4, stride=1, padding=2),
+            torch.nn.Conv2d(32, 128, 3, stride=1, padding=2),
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2, 2),
             torch.nn.Conv2d(128, 256, 3, stride=1, padding=1),
