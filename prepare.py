@@ -1,5 +1,3 @@
-import os
-
 from util import get_transform, get_classes
 from dataset import FishermanDatasetPreparer
 import sys
@@ -21,5 +19,5 @@ dataset_preparer = FishermanDatasetPreparer()
 print("Preparing dataset...")
 print("Original dir: %s" % img_dir)
 print("Result dir: %s" % result_dir)
-dataset_preparer.prepare(img_dir, result_dir, get_classes(), get_transform())
-print("Done")
+new_images = dataset_preparer.prepare(img_dir, result_dir, get_classes(), get_transform())
+print("Done. %d new images processed." % new_images)

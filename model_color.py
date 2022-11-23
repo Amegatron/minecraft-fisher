@@ -1,13 +1,13 @@
 import torch.nn
 
 
-class FishermanModel(torch.nn.Module):
+class FishermanModelColor(torch.nn.Module):
     def __init__(self, out_features):
         super().__init__()
         self.out_features = out_features
 
         self.network = torch.nn.Sequential(
-            torch.nn.Conv2d(1, 32, 5, 2),
+            torch.nn.Conv2d(3, 32, 5, 2),
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2, 2),
             torch.nn.Conv2d(32, 128, 3, stride=1, padding=2),

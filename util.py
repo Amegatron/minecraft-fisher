@@ -13,9 +13,10 @@ def get_state_filename():
 def get_transform():
     return Compose(
         [
+            Resize((480, 854)),
             CenterCrop(300),
             Resize(128),
-            Grayscale(),
+            # Grayscale(),
         ]
     )
 

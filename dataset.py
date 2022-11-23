@@ -11,20 +11,29 @@ class FishermanDatasetPreparer:
         if not os.path.exists(result_path):
             os.mkdir(result_path)
 
+        counter = 0
+
         for cls in classes:
             raw_class_dir = raw_img_path + os.sep + cls
             result_class_dir = result_path + os.sep + cls
 
             if not os.path.exists(result_class_dir):
                 os.mkdir(result_class_dir)
-                files = glob.glob(raw_class_dir + os.sep + "*.png")
 
-                for file in files:
-                    filename = file.split(os.sep)[-1]
-                    result_file = result_class_dir + os.sep + filename
-                    image = Image.open(file).convert("RGB")
-                    image = transform(image)
-                    image.save(result_file)
+            files = glob.glob(raw_class_dir + os.sep + "*.png")
+
+            for file in files:
+                filename = file.split(os.sep)[-1]
+                result_file = result_class_dir + os.sep + filename
+                if os.path.exists(result_file):
+                    continue
+
+                image = Image.open(file).convert("RGB")
+                image = transform(image)
+                image.save(result_file)
+                counter += 1
+
+        return counter
 
 
 class FishermanSimplifiedDataset(Dataset):

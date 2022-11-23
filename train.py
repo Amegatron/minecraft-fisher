@@ -1,6 +1,7 @@
 import torch
 from dataset import FishermanSimplifiedDataset
 from model import FishermanModel
+from model_color import FishermanModelColor
 from util import get_classes, train_model, get_state_filename
 import torch.utils.data as data
 import sys
@@ -30,15 +31,15 @@ trained_model_path = get_state_filename()
 if len(sys.argv) > 2:
     trained_model_path = sys.argv[2]
 
-lr = 0.00002
+lr = 0.000012
 if len(sys.argv) > 3:
     lr = float(sys.argv[3])
 
-epochs = 200
+epochs = 500
 if len(sys.argv) > 4:
     epochs = int(sys.argv[4])
 
-target_acc = 0.94
+target_acc = 0.97
 if len(sys.argv) > 5:
     target_acc = float(sys.argv[5])
 
@@ -51,7 +52,7 @@ train_dataset, test_dataset = data.random_split(dataset, (train_len, len(dataset
 train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True, generator=torch.Generator(device))
 test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=64, shuffle=True, generator=torch.Generator(device))
 
-model = FishermanModel(len(classes)).to(device)
+model = FishermanModelColor(len(classes)).to(device)
 
 print("Training...")
 train_model(

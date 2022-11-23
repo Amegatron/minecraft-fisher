@@ -1,9 +1,10 @@
+from model_color import FishermanModelColor
 from util import find_window, get_transform, get_classes, get_state_filename
-from model import FishermanModel
 from fisherman import Fisherman
 from time import sleep
 import sys
 import torch
+from pynput import keyboard
 
 if len(sys.argv) < 2:
     print("Usage:\n")
@@ -26,7 +27,7 @@ if len(windows) == 0:
 # Load model
 print("Loading model...")
 classes = get_classes()
-model = FishermanModel(len(classes))
+model = FishermanModelColor(len(classes))
 model.load_state_dict(torch.load(model_path))
 model.eval()
 
@@ -40,12 +41,8 @@ fishermanBot = Fisherman(
         Fisherman.STATE_NO_FISHING_OK,
     ],
     get_transform(),
+    [keyboard.Key.f6]
 )
 
-prepareTime = 5
-input("Press enter to start botting in 5 seconds...")
-for i in range(5):
-    print(prepareTime - i, "...")
-    sleep(1)
-
+print("Press F6 to start/pause botting.")
 fishermanBot.start()
